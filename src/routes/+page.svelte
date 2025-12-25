@@ -1,16 +1,16 @@
 <script lang="ts">
-	import * as Card from '$lib/components/ui/card/index.js';
-	import * as Tabs from '$lib/components/ui/tabs/index.js';
+	import * as Card from '@/components/ui/card/index.js';
+	import * as Tabs from '@/components/ui/tabs/index.js';
 	import { Input } from '@/components/ui/input/index.js';
 	import { Label } from '@/components/ui/label/index.js';
 	import LeafPattern from '@/patterns/LeafPattern.svelte';
-	import * as ToggleGroup from '$lib/components/ui/toggle-group/index.js';
+	import * as ToggleGroup from '@/components/ui/toggle-group/index.js';
 	import { Canvas } from '@threlte/core';
 	import Scene from '@/Scene.svelte';
 	import { onMount } from 'svelte';
 	import { toPng } from 'html-to-image';
 	import Button from '@/components/ui/button/button.svelte';
-	import { Slider } from '$lib/components/ui/slider/index.js';
+	import { Slider } from '@/components/ui/slider/index.js';
 	// import printJS from 'print-js';
 
 	const patterns = [
