@@ -10,6 +10,7 @@
 	import { onMount } from 'svelte';
 	import { toPng } from 'html-to-image';
 	import Button from '@/components/ui/button/button.svelte';
+	import { Slider } from '$lib/components/ui/slider/index.js';
 	// import printJS from 'print-js';
 
 	const patterns = [
@@ -29,9 +30,11 @@
 
 	let productName = $state('Peppermint');
 	let scientificName = $state('Lavendula Angustfolia');
-	let selectedPattern = $state(patterns[5]);
+	let selectedPattern = $state(patterns[4]);
 	let selectedColor = $state(colors[0]);
 	let selectedStyle = $state(styles[0]);
+
+	let opacity = $state(90);
 
 	let labelNode: HTMLElement | undefined;
 	let label: undefined | string = $state();
@@ -145,6 +148,11 @@
 						{/each}
 					</ToggleGroup.Root>
 				</div>
+
+				<div class="grid gap-2">
+					<Label>Opacity</Label>
+					<Slider type="single" bind:value={opacity} max={100} step={1} class="max-w-[80%]" />
+				</div>
 			</div>
 		</Card.Content>
 	</Card.Root>
@@ -171,6 +179,7 @@
 							class:invert={selectedPattern.endsWith('svg')}
 							style:background-image={`url('/patterns/${selectedPattern}')`}
 							style:background-size="140px"
+							style:opacity={opacity / 100}
 						></div>
 						<!-- <LeafPattern /> -->
 					</div>
